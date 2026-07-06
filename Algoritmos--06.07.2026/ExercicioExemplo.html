@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trocador de Frase</title>
+</head>
+
+<body style="background-color: aqua;">
+
+    <h1>Trocador de Frase</h1>
+    <label for="inputA">Coloque a frase</label>
+    <input type="text" name="inputA" id="inputA">
+    <br>
+    <input type="button" name="Converter" id="Converter" value="Converter" onclick="funcaoConverter()">
+    <br>
+    <span id="resposta">O resultado é</span>
+
+    <script>
+        function funcaoInverter(p) {
+            let aux = " ";
+            for (let i = p.length - 1; i >= 0; i--) {
+                aux += p[i];
+               
+            }
+            
+        return aux;
+        }
+        function funcaoConverter() {
+            let frase = document.getElementById("inputA").value;
+            let FraseSplit = frase.split(" ");
+            let Resposta = "";
+            for (let i = 0; i < FraseSplit.length; i++) {
+                let x = funcaoInverter(FraseSplit[i]);
+                Resposta += x + " ";
+            }
+            document.getElementById("resposta").innerHTML = Resposta;
+
+        }
+
+    </script>
+</body>
+
+</html>
