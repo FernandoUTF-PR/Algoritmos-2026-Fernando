@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gorjeta</title>
+</head>
+
+<body style="background-color: aqua;">
+
+    <h1>Gorjeta</h1>
+    <label for="inputA">Coloque o valor da conta (sem a gorjeta)</label>
+    <input type="number" name="inputA" id="inputA">
+    <br>
+
+    <br>
+    <input type="button" name="calcular" id="calcular" value="Converter" onclick="funcaoCalcular()">
+    <br>
+    <span id="resposta">O resultado é</span>
+
+    <script>
+
+
+
+        function funcaoCalcular() {
+            // alert("o clicar funcionou")
+            let valorA = parseFloat(document.getElementById("inputA").value);
+            let final = (valorA + (valorA * 0.10))
+
+
+
+            document.getElementById("resposta").innerHTML = " O resultado é " + final.toFixed(2);
+
+        }
+    </script>
+</body>
+
+</html>

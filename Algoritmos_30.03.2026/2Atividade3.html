@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milímetros por polegada</title>
+</head>
+
+<body>
+    <h1>Programa exemplo que faz a milímetros por polegada</h1>
+    <!-- Programa em HTML e JavaScript para somar 2 números -->
+    <label for="inputN1">X (valor em milímetros)</label>
+    <input type="number" name="inputN1" id="inputN1">
+    <br>
+ 
+    <input type="button" value="Calcular milímetros por polegada" onclick="funcaoResponsavelPeloCalculo()">
+    <br>
+    <label for="resposta">x / 25,4 =</label>
+    <span id="resposta">?</span>
+
+    <script>
+        function funcaoResponsavelPeloCalculo() {
+            let x = parseFloat(document.getElementById("inputN1").value);
+
+            let s = x / 25.4 ;
+            document.getElementById("resposta").innerHTML = s;
+        }
+    </script>
+
+</body>
+
+</html>

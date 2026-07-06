@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>de a para A</title>
+
+    <h1>de vogal para VOGAL</h1>
+    <input type="text" id="inputFrase" placeholder="Digite uma frase aqui"><br>
+    <button onclick="Aalta()">Separar Palavras</button><br>
+    <label for="spanResposta">Resposta</label>
+    <span id="spanResposta"></span>
+
+</head>
+
+<body>
+
+    <script>
+
+
+        function Aalta() {
+            let palavra = document.getElementById("inputFrase").value;
+            let splitada = palavra.split("");
+            for (let i = 0; i < splitada.length; i++) {
+                if (splitada[i] === "a" || splitada[i] === "e" || splitada[i] === "i" ||
+                    splitada[i] === "o" || splitada[i] === "u") {
+                    splitada[i] = splitada[i].toUpperCase();
+
+
+                }
+            }
+            let resp = splitada.join("");
+            console.log(resp);
+            return;
+        }
+    </script>
+</body>
+
+</html>

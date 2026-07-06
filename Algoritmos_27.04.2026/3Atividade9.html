@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiro Grau</title>
+</head>
+
+<body style="background-color: aqua;">
+
+    <h1>Programa aonde A = 4 e B = -8 </h1>
+    <label for="inputA">Coloque o número 7 no A</label>
+    <input type="number" name="inputA" id="inputA">
+    <br>
+    <label for="inputB">Coloque o número 10 no N2</label>
+    <input type="number" name="inputB" id="inputB">
+    <br>
+
+    <input type="button" name="calcular" id="calcular" value="Somar" onclick="firstGrau()">
+    <br>
+    <span id="resposta">O resultado do cálculo é</span>
+
+    <script>
+        function firstGrau() {
+            // ax + b = 0
+            let a = 4, b = -8;
+            let x = -b / a;
+            console.log("Solução da equação");
+            console.log(a + "x - " + b + " = 0 ");
+            console.log(a + "x=" + b * -1)
+            console.log("x = " + -b + "/" + a);
+            console.log("x = " + x);
+        }
+    </script>
+</body>
+
+</html>

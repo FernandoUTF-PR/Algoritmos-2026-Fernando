@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trocador de A ,B e C</title>
+</head>
+
+<body style="background-color: aqua;">
+
+    <h1>Trocador de A , B e C</h1>
+    <label for="inputA">Coloque o número no A</label>
+    <input type="number" name="inputA" id="inputA">
+    <br>
+    <label for="inputB">Coloque o número no B</label>
+    <input type="number" name="inputB" id="inputB">
+    <br>
+    <label for="inputC">Coloque o número no C</label>
+    <input type="number" name="inputC" id="inputC">
+    <br>
+    <input type="button" name="calcular" id="calcular" value="Converter" onclick="funcaoCalcular()">
+    <br>
+    <span id="resposta">O resultado é</span>
+
+    <script>
+
+
+
+        function funcaoCalcular() {
+            // alert("o clicar funcionou")
+            let valorA = parseFloat(document.getElementById("inputA").value);
+            let valorB = parseFloat(document.getElementById("inputB").value);
+            let valorC = parseFloat(document.getElementById("inputC").value);
+
+            if (valorA < valorB) {
+                valorAlt = valorA;
+                valorA = valorB;
+                valorB = valorAlt;
+            }
+
+            if (valorB < valorC) {
+                valorAlt = valorB;
+                valorB = valorC;
+                valorC = valorAlt;
+            }
+
+            if (valorA < valorB) {
+                valorAlt = valorA;
+                valorA = valorB;
+                valorB = valorAlt;
+            }
+            document.getElementById("resposta").innerHTML = " O resultado é " + valorA + " ," + valorB + " ," + valorC;
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celsius</title>
+</head>
+
+<body style="background-color: aqua;">
+
+    <h1>Celsius para Fahrenheit</h1>
+    <label for="inputA">Coloque o valor da temperatura em Celsius</label>
+    <input type="number" name="inputA" id="inputA">
+    <br>
+
+    <br>
+    <input type="button" name="calcular" id="calcular" value="Converter" onclick="funcaoCalcular()">
+    <br>
+    <span id="resposta">O resultado é</span>
+
+    <script>
+
+
+
+        function funcaoCalcular() {
+            // alert("o clicar funcionou")
+            let valorA = parseFloat(document.getElementById("inputA").value);
+            let final = ((valorA * (9/5)) + 32)
+//(100 °C × 9/5) + 32 = 212 °F
+
+
+            document.getElementById("resposta").innerHTML = " O resultado é " + final + "ºF";
+
+        }
+    </script>
+</body>
+
+</html>

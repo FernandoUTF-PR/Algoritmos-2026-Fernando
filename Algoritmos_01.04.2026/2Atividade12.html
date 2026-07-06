@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um terço de X</title>
+</head>
+
+<body>
+    <h1>Um terço de X</h1>
+    <!-- Programa em HTML e JavaScript para somar 2 números -->
+    <label for="inputN1">X</label>
+    <input type="number" name="inputN1" id="inputN1">
+    <br>
+    <label for="resposta">X/3 = </label>
+    <span id="resposta">?</span>
+    <br>
+    <input type="button" value="Um terço" onclick="funcaoResponsavelPeloCalculo()">
+    <br>
+    <script>
+        function funcaoResponsavelPeloCalculo() {
+            let x = parseFloat(document.getElementById("inputN1").value);
+
+            let s = x / 3
+            document.getElementById("resposta").innerHTML = s;
+        }
+    </script>
+
+</body>

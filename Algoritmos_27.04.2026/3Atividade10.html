@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle</title>
+</head>
+
+<body style="background-color: aqua;">
+
+    <h1>Programa aonde base = 10 e altura = 5 </h1>
+    <label for="inputA">Coloque o número 10 na Base</label>
+    <input type="number" name="inputA" id="inputA">
+    <br>
+    <label for="inputB">Coloque o número 5 na Altura</label>
+    <input type="number" name="inputB" id="inputB">
+    <br>
+
+    <input type="button" name="calcular" id="calcular" value="Somar" onclick="triangle()">
+    <br>
+    <span id="resposta">O resultado do cálculo é</span>
+
+    <script>
+        function triangle() {
+            let base = 10, altura = 5;
+            let area = (base * altura) / 2;
+            console.log("Área do triângulo =", area);
+        }
+    </script>
+</body>
+
+</html>

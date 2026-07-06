@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número ao quadrado, cubo e raizes</title>
+</head>
+
+<body>
+    <h1>Número ao quadrado, cubo e raizes</h1>
+    <!-- Programa em HTML e JavaScript para somar 2 números -->
+    <label for="inputN1">X</label>
+    <input type="number" name="inputN1" id="inputN1">
+    <br>
+    <input type="button" value="Ao cubo" onclick="funcaoResponsavelPeloCalculo1()">
+    <br>
+    <label for="resposta1">x² = </label>
+    <span id="resposta1">?</span>
+    <br>
+    <input type="button" value="Ao cubo" onclick="funcaoResponsavelPeloCalculo2()">
+    <br>
+    <label for="resposta2">x³ = </label>
+    <span id="resposta2">?</span>
+    <br>
+    <input type="button" value="Ao cubo" onclick="funcaoResponsavelPeloCalculo3()">
+    <br>
+    <label for="resposta3">raiz quadrada de X = </label>
+    <span id="resposta3">?</span>
+    <br>
+    <input type="button" value="Ao cubo" onclick="funcaoResponsavelPeloCalculo4()">
+    <br>
+    <label for="resposta4">raiz cubica de X = </label>
+    <span id="resposta4">?</span>
+    <br>
+
+    <script>
+        function funcaoResponsavelPeloCalculo1() {
+            let x = parseFloat(document.getElementById("inputN1").value);
+
+            let s = x ** 2
+            document.getElementById("resposta1").innerHTML = s;
+        }
+
+         function funcaoResponsavelPeloCalculo2() {
+            let x = parseFloat(document.getElementById("inputN1").value);
+
+            let s = x ** 3
+            document.getElementById("resposta2").innerHTML = s;
+        }
+
+         function funcaoResponsavelPeloCalculo3() {
+            let x = parseFloat(document.getElementById("inputN1").value);
+
+            let s = Math.sqrt (x)
+            document.getElementById("resposta3").innerHTML = s;
+        }
+
+         function funcaoResponsavelPeloCalculo4() {
+            let x = parseFloat(document.getElementById("inputN1").value);
+
+            let s = x ** (1/3)
+            document.getElementById("resposta4").innerHTML = s;
+        }
+    </script>
+
+</body>

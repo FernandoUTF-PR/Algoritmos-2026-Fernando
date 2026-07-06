@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular X e Y Dois</title>
+</head>
+
+<body style="background-color: aqua;">
+
+    <h1>Programa para somar A = 6 e B = 4-A </h1>
+    <label for="inputA">Coloque o número 6 no A</label>
+    <input type="number" name="inputA" id="inputA">
+    <br>
+    <label for="inputB">Coloque o número 4 no B</label>
+    <input type="number" name="inputB" id="inputB">
+    <br>
+    <input type="button" name="calcular" id="calcular" value="Somar" onclick="funcaoCalcular()">
+    <br>
+    <span id="resposta">O resultado de X é</span>
+
+    <script>
+
+
+
+        function funcaoCalcular() {
+            // alert("o clicar funcionou")
+            let valorA = parseFloat(document.getElementById("inputA").value);
+            let valorB = (valorA - parseFloat(document.getElementById("inputB").value));
+
+            let X = (valorA ** 3 * valorB + 7)/2;
+            
+            document.getElementById("resposta").innerHTML = " O valor de X é " + X;
+            console.log( " O valor de X é " + X);
+        }
+    </script>
+</body>
+
+</html>
+

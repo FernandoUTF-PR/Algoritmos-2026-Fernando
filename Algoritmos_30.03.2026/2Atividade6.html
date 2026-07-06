@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de moedas</title>
+</head>
+
+<body>
+    <h1>Programa de moedas para reais</h1>
+    <!-- Programa em HTML e JavaScript -->
+    <label for="inputN1">Moedas de 1 centavo</label>
+    <input type="number" name="inputN1" id="inputN1">
+    <br>
+    <label for="inputN2">Moedas de 5 centavos</label>
+    <input type="number" name="inputN2" id="inputN2">
+    <br>
+    <label for="inputN3">Moedas de 10 centavos</label>
+    <input type="number" name="inputN3" id="inputN3">
+    <br>
+    <label for="inputN4">Moedas de 25 centavos</label>
+    <input type="number" name="inputN4" id="inputN4">
+    <br>
+    <label for="inputN5">Moedas de 50 centavos</label>
+    <input type="number" name="inputN5" id="inputN5">
+    <br>
+    <label for="inputN6">Moedas de 1 Real</label>
+    <input type="number" name="inputN6" id="inputN6">
+    <br>
+    <input type="button" value="Calcular" onclick="funcaoResponsavelPeloCalculo()">
+    <br>
+    <label for="resposta">Total em reais =</label>
+    <span id="resposta">?</span>
+
+    <script>
+        function funcaoResponsavelPeloCalculo() {
+            let u = parseFloat(document.getElementById("inputN1").value);
+            let v = parseFloat(document.getElementById("inputN2").value);
+            let w = parseFloat(document.getElementById("inputN3").value);
+            let x = parseFloat(document.getElementById("inputN4").value);
+            let y = parseFloat(document.getElementById("inputN5").value);
+            let z = parseFloat(document.getElementById("inputN6").value);
+
+            let partFinal = (u*0.01 + v*0.05 + w*0.10 + x*0.25 + y*0.50 + z)
+            document.getElementById("resposta").innerHTML = partFinal;
+        }
+    </script>
+
+</body>
+
+</html>

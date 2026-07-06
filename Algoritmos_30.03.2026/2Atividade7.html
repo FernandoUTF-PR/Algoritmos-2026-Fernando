@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de subtração de porcentagem</title>
+</head>
+
+<body>
+    <h1>Programa exemplo que exclui a porcentagem</h1>
+    <!-- Programa em HTML e JavaScript para somar 2 números -->
+    <label for="inputN1">X (valor com porcentagem)</label>
+    <input type="number" name="inputN1" id="inputN1">
+    <br>
+
+    <br>
+    <input type="button" value="Calcular" onclick="funcaoResponsavelPeloCalculo()">
+    <br>
+    <label for="resposta">x + x . 0,04 = </label>
+    <span id="resposta">?</span>
+
+    <script>
+        function funcaoResponsavelPeloCalculo() {
+            let x = parseFloat(document.getElementById("inputN1").value);
+
+            let s = x - (x * 0.04);
+            document.getElementById("resposta").innerHTML = s;
+        }
+    </script>
+
+</body>
+
+</html>

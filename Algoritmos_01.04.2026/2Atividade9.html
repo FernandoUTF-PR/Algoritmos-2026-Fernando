@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piscina</title>
+</head>
+
+<body>
+    <label for="inputValorBasePiscina">Digite o comprimento da base piscina (em metros cubicos)</label>
+    <input type="number" name="inputValorBasePiscina" id="inputValorBasePiscina">
+    <br>
+    <label for="inputValorComprimentoPiscina">Digite a altura do piscina (em metros cubicos)</label>
+    <input type="number" name="inputValorComprimentoPiscina" id="inputValorComprimentoPiscina">
+    <br>
+    <label for="inputValorProfundidadePiscina">Digite a profundidade da piscina (em metros cubicos)</label>
+    <input type="number" name="inputValorProfundidadePiscina" id="inputValorProfundidadePiscina">
+    <br>
+    <label for="inputValorBaseAgua">Digite o volume da água em litros</label>
+    <input type="number" name="inputValorBaseAgua" id="inputValorBaseAgua">
+    <br>
+
+    <input type="button" name="botaoArea" id="botaoArea" value="Valor dos Piscina" onclick="funcaoPiscina()">
+    <br>
+    <label for="resultado">Resultado</label>
+    <input type="number" name="resultado" id="resultado" value="0">
+
+    <script>
+        function funcaoPiscina() {
+            //Entrada de dados para a função
+            let
+                valorBasePiscina = parseFloat(
+                    document.getElementById("inputValorBasePiscina").value);
+            let
+                valorComprimentoPiscina = parseFloat(
+                    document.getElementById("inputValorComprimentoPiscina").value);
+            let
+                valorProfundidadePiscina = parseFloat(
+                    document.getElementById("inputValorProfundidadePiscina").value);
+            let
+                inputValorBaseAgua = parseFloat(
+                    document.getElementById("inputValorBaseAgua").value);
+
+            //processamento
+            let h = (valorBasePiscina * valorComprimentoPiscina * valorProfundidadePiscina) / (inputValorBaseAgua);
+
+            document.getElementById("resultado").value = h;
+
+        }
+    </script>
+
+</body>
+
+</html>

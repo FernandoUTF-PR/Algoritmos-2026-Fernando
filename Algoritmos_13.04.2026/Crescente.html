@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular A e B e C</title>
+</head>
+
+<body style="background-color: rgb(170, 202, 202);">
+
+    <h1>Programa para colocar número em crescente</h1>
+    <label for="inputA">Coloque o número no A</label>
+    <input type="number" name="inputA" id="inputA">
+    <br>
+    <label for="inputB">Coloque o número no B</label>
+    <input type="number" name="inputB" id="inputB">
+    <br>
+    <label for="inputC">Coloque o número no C</label>
+    <input type="number" name="inputC" id="inputC">
+    <br>
+    <input type="button" name="calcular" id="calcular" value="Somar" onclick="funcaoCalcular()">
+    <br>
+    <span id="resposta">O resultado é</span>
+
+    <script>
+
+
+
+        function funcaoCalcular() {
+            // alert("o clicar funcionou")
+            let valorA = parseFloat(document.getElementById("inputA").value);
+            let valorB = parseFloat(document.getElementById("inputB").value);
+            let valorC = parseFloat(document.getElementById("inputC").value);
+            let aux=0;
+            if (valorA > valorB) {
+                aux = a;
+                b = a;
+                b = aux;
+                
+            } if (valorB > valorC) {
+                 aux = b;
+                c = b;
+                c = aux;
+                
+            } if (valorA > valorB) {
+                aux = a;
+                b = a;
+                b = aux;
+               
+            }
+
+            console.log(" o resultado do resp é " + a + " " + b + " " + c);
+        }
+    </script>
+</body>
+
+</html>

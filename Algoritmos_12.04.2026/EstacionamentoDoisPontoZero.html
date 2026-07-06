@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estacionamento</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="EstacionamentoDoisPontoZero.css">
+</head>
+
+<body>
+
+    <header>
+        Estacionamento
+    </header>
+
+    <main>
+        <section>
+            <h1>Preço do Estacionamento</h1>
+
+            <label for="veiculoGrande">Veículo Grande</label>
+            <input type="checkbox" id="veiculoGrande">
+            <br>
+
+            <label for="clienteFrequente">Cliente Frequente</label>
+            <input type="checkbox" id="clienteFrequente">
+            <br>
+
+            <label for="dataInicio">Data/Hora Entrada:</label>
+            <input type="datetime-local" id="dataInicio">
+            <br>
+
+            <label for="dataFim">Data/Hora Saída:</label>
+            <input type="datetime-local" id="dataFim">
+            <br>
+
+            <button onclick="funcaoTempo()">Calcular o preço</button>
+
+            <div class="resultado">
+                <p><strong>Total:</strong> <span id="respTempo">0</span></p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <span id="mensagem">Preencha os valores para calcular</span>
+    </footer>
+
+    <!-- JS -->
+    <script src="EstacionamentoDoisPontoZero.js"></script>
+
+</body>
+
+</html>

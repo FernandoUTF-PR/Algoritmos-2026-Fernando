@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número ao quadrado</title>
+</head>
+
+<body>
+    <h1>Número ao quadrado</h1>
+    <!-- Programa em HTML e JavaScript para somar 2 números -->
+    <label for="inputN1">X</label>
+    <input type="number" name="inputN1" id="inputN1">
+    <br>
+    <br>
+    <input type="button" value="Ao Quadrado" onclick="funcaoResponsavelPeloCalculo()">
+    <br>
+    <label for="resposta">x² = </label>
+    <span id="resposta">?</span>
+
+    <script>
+        function funcaoResponsavelPeloCalculo() {
+            let x = parseFloat(document.getElementById("inputN1").value);
+
+            let s = x ** 2
+            document.getElementById("resposta").innerHTML = s;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinheiro restante e dívdas</title>
+</head>
+
+<body>
+    <h1>Número ao quadrado, cubo e raizes</h1>
+    <!-- Programa em HTML e JavaScript para somar 2 números -->
+    <label for="inputN1">Dinheiro</label>
+    <input type="number" name="inputN1" id="inputN1">
+    <br>
+    <label for="inputN2">Conta de energia</label>
+    <input type="number" name="inputN2" id="inputN2">
+    <br>
+    <label for="inputN3">Conta de água</label>
+    <input type="number" name="inputN3" id="inputN3">
+    <br>
+    <label for="inputN4">Conta de internet</label>
+    <input type="number" name="inputN4" id="inputN4">
+    <br>
+    <label for="inputN5">Imposto</label>
+    <input type="number" name="inputN5" id="inputN5">
+    <br>
+    <label for="inputN6">Compras</label>
+    <input type="number" name="inputN6" id="inputN6">
+    <br>
+    <br>
+    <input type="button" value="Quanto sobrará" onclick="funcaoResponsavelPeloCalculo()">
+    <br>
+    <label for="resposta1">Quanto sobrará? : </label>
+    <span id="resposta1">?</span>
+
+    <script>
+        function funcaoResponsavelPeloCalculo() {
+            let q = parseFloat(document.getElementById("inputN1").value);
+            let w = parseFloat(document.getElementById("inputN2").value);
+            let e = parseFloat(document.getElementById("inputN3").value);
+            let r = parseFloat(document.getElementById("inputN4").value);
+            let t = parseFloat(document.getElementById("inputN5").value);
+            let y = parseFloat(document.getElementById("inputN6").value);
+
+            let s = q - (w + e + r + t + y)
+            document.getElementById("resposta1").innerHTML = s;
+
+            }
+
+    </script>
+
+</body>

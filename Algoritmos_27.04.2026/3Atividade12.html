@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ponderada</title>
+</head>
+
+<body style="background-color: aqua;">
+
+    <h1>Programa aonde n1 = 7, n2 = 9, peso1 = 2 e peso2 = 3 </h1>
+    <label for="inputA">Coloque o número 7 no N1</label>
+    <input type="number" name="inputA" id="inputA">
+    <br>
+    <label for="inputB">Coloque o número 9 no N2</label>
+    <input type="number" name="inputB" id="inputB">
+    <br>
+    <label for="inputA">Coloque o número 2 no peso1</label>
+    <input type="number" name="inputA" id="inputA">
+    <br>
+    <label for="inputB">Coloque o número 3 no peso2</label>
+    <input type="number" name="inputB" id="inputB">
+    <br>
+
+    <input type="button" name="calcular" id="calcular" value="Somar" onclick="mediaPond()">
+    <br>
+    <span id="resposta">O resultado do cálculo é</span>
+
+    <script>
+        function mediaPond() {
+            let n1 = 7, n2 = 9, peso1 = 2, peso2 = 3;
+            let mediaPond = (n1 * peso1 + n2 * peso2) / (peso1 + peso2);
+            console.log("Média ponderada = " + mediaPond);
+
+        }
+    </script>
+</body>
+
+</html>

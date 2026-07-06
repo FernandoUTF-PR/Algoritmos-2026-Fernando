@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distancia</title>
+</head>
+
+<body style="background-color: aqua;">
+
+    <h1>Programa aonde X1 = 7; X2 = 10; Y1 = 5; Y2 = 7 </h1>
+    <label for="inputN1">Coloque o número 7 no N1</label>
+    <input type="number" name="inputN1" id="inputN1">
+    <br>
+    <label for="inputN2">Coloque o número 10 no N2</label>
+    <input type="number" name="inputN2" id="inputN2">
+    <br>
+
+    <input type="button" name="calcular" id="calcular" value="Somar" onclick="numberDrop()">
+    <br>
+    <span id="resposta">O resultado do cálculo é</span>
+
+    <script>
+        function numberDrop() {
+            let x1 = 4;
+            let x2 = 6;
+            let y1 = 5;
+            let y2 = 7;
+            let distancia = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** (1 / 2);
+            console.log("Distância = " + distancia);
+        }
+    </script>
+</body>
+
+</html>

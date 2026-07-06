@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retângulização</title>
+</head>
+
+<body style="background-color: aqua;">
+
+    <h1>Conversão dos valores do retângulo</h1>
+    <label for="inputA">Coloque o valor da largura</label>
+    <input type="number" name="inputA" id="inputA">
+    <br>
+
+    <label for="inputB">Coloque o valor da altura</label>
+    <input type="number" name="inputB" id="inputB">
+    <br>
+
+    <br>
+    <input type="button" name="calcular" id="calcular1" value="Vertical" onclick="funcaoCalcular1()">
+    <br>
+    <span id="resposta1">O resultado é</span>
+    <br>
+    <input type="button" name="calcular" id="calcular2" value="Horizontal" onclick="funcaoCalcular2()">
+    <br>
+    <span id="resposta2">O resultado é</span>
+
+    <script>
+
+
+
+        function funcaoCalcular1() {
+            // alert("o clicar funcionou")
+            let valorA = parseFloat(document.getElementById("inputA").value);
+            let valorB = parseFloat(document.getElementById("inputB").value);
+
+            let vertical = (valorA + (valorB * 2));
+
+            document.getElementById("resposta1").innerHTML = " O resultado é " + vertical;
+
+        }
+
+        function funcaoCalcular2() {
+            // alert("o clicar funcionou")
+            let valorA = parseFloat(document.getElementById("inputA").value);
+            let valorB = parseFloat(document.getElementById("inputB").value);
+
+            let horizontal = ((valorA*2) + valorB);
+
+            document.getElementById("resposta2").innerHTML = " O resultado é " + horizontal;
+
+        }
+    </script>
+</body>
+
+</html>

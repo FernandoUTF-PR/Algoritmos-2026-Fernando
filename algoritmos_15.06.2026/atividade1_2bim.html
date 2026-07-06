@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>10 vezes o seu nome</title>
+</head>
+
+<body>
+
+    <label for="inputNomeComp">Seu nome</label>
+    <input type="text" id="inputNomeComp"><br>
+
+    <input type="button" value="Fazer" onclick="Fazer()">
+    <br>
+    
+    <label for="spanResposta1">Resposta 1</label>
+    <span id="spanResposta1"></span>
+    <br>
+    <label for="spanResposta2">Resposta 2</label>
+    <span id="spanResposta2"></span>
+    <br>
+    <label for="spanResposta3">Resposta 3</label>
+    <span id="spanResposta3"></span>
+    <br>
+    <label for="spanResposta4">Resposta 4</label>
+    <span id="spanResposta4"></span>
+    <br>
+    <label for="spanResposta5">Resposta 5</label>
+    <span id="spanResposta5"></span>
+    <br>
+    <label for="spanResposta6">Resposta 6</label>
+    <span id="spanResposta6"></span>
+    <br>
+    <label for="spanResposta7">Resposta 7</label>
+    <span id="spanResposta7"></span>
+    <br>
+    <label for="spanResposta8">Resposta 8</label>
+    <span id="spanResposta8"></span>
+    <br>
+    <label for="spanResposta9">Resposta 9</label>
+    <span id="spanResposta9"></span>
+    <br>
+    <label for="spanResposta0">Resposta 10</label>
+    <span id="spanResposta0"></span>
+    <br>
+
+    <script>
+        function Fazer(){
+            let nome = document.getElementById("inputNomeComp").innerHTML;
+
+            document.getElementById("spanResposta1").innerHTML = nome;
+            document.getElementById("spanResposta2").innerHTML = nome;
+            document.getElementById("spanResposta3").innerHTML = nome;
+            document.getElementById("spanResposta4").innerHTML = nome;
+            document.getElementById("spanResposta5").innerHTML = nome;
+            document.getElementById("spanResposta6").innerHTML = nome;
+            document.getElementById("spanResposta7").innerHTML = nome;
+            document.getElementById("spanResposta8").innerHTML = nome;
+            document.getElementById("spanResposta9").innerHTML = nome;
+            document.getElementById("spanResposta0").innerHTML = nome;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

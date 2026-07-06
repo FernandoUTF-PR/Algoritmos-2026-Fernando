@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média</title>
+</head>
+
+<body style="background-color: aqua;">
+
+    <h1>Programa aonde N1 = 7; N2 = 10; </h1>
+    <label for="inputN1">Coloque o número 7 no N1</label>
+    <input type="number" name="inputN1" id="inputN1">
+    <br>
+    <label for="inputN2">Coloque o número 10 no N2</label>
+    <input type="number" name="inputN2" id="inputN2">
+    <br>
+
+    <input type="button" name="calcular" id="calcular" value="Somar" onclick="media(n1, n2, n3, n4)">
+    <br>
+    <span id="resposta">O resultado da média é</span>
+
+    <script>
+
+        function media(n1, n2, n3, n4) {
+            return (n1 + n2 + n3 + n4) / 4;
+        }
+
+        let m1 = media(8, 8, 8, 8);
+        let m2 = media(5, 6, 7, 8);
+        let m3 = media(4, 4, 4, 4);
+        let m4 = media(10, 9, 10, 9);
+        let n1 = parseFloat(document.getElementById("inputN1").value);
+        let n2 = parseFloat(document.getElementById("inputN2").value);
+        let n3 = parseFloat(document.getElementById("inputN1").value) + 2;
+        let n4 = (90 / 100) * parseFloat(document.getElementById("inputN2").value);
+        let m5 = media(n1, n2, n3, n4);
+
+        console.log("Média 1 = " + m1);
+        console.log("Média 2 = " + m2);
+        console.log("Média 3 = " + m3);
+        console.log("Média 4 = " + m4);
+        console.log("Média 5 = " + m5);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limite</title>
+</head>
+
+<body style="background-color: aqua;">
+
+    <h1>Programa para definir o limite de X no intervalo</h1>
+    <label for="inputA">Valor inicial</label>
+    <input type="number" name="inputA" id="inputA">
+    <br>
+    <label for="inputB">Valor X</label>
+    <input type="number" name="inputB" id="inputB">
+    <br>
+    <label for="inputB">Valor final</label>
+    <input type="number" name="inputC" id="inputC">
+    <br>
+    <input type="button" name="calcular" id="calcular" value="Somar" onclick="funcaoCalcular()">
+    <br>
+    <span id="resposta">O resultado é</span>
+
+    <script>
+
+
+
+        function funcaoCalcular() {
+
+            // alert("o clicar funcionou")
+            let valorIni = parseFloat(document.getElementById("inputA").value);
+            let valorX = parseFloat(document.getElementById("inputB").value);
+            let valorFin = parseFloat(document.getElementById("inputC").value);
+
+            if (valorX>=valorIni&&valorX<valorFin){
+                resp = "Sim, o número " + valorX + " está no intervalo!";
+            }else{
+                resp = "Não, o número " + valorX + " não está no intervalo!";
+            }
+
+            document.getElementById("resposta").innerHTML = resp;
+            
+        }
+    </script>
+</body>
+
+</html>

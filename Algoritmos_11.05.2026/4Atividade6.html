@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idade</title>
+</head>
+
+<body style="background-color: aqua;">
+
+    <h1>Cálculo da Idade</h1>
+    <label for="inputA">Coloque os dias</label>
+    <input type="number" name="inputA" id="inputA">
+    <br>
+
+    <label for="inputB">Coloque os meses</label>
+    <input type="number" name="inputB" id="inputB">
+    <br>
+
+    <label for="inputC">Coloque os anos</label>
+    <input type="number" name="inputC" id="inputC">
+    <br>
+
+    <br>
+    <input type="button" name="calcular" id="calcular" value="Idade" onclick="funcaoCalcular()">
+    <br>
+    <span id="resposta1">O resultado é</span>
+
+    <script>
+
+        function funcaoCalcular() {
+            // alert("o clicar funcionou")
+            let valorA = parseFloat(document.getElementById("inputA").value);
+            let valorB = parseFloat(document.getElementById("inputB").value);
+            let valorC = parseFloat(document.getElementById("inputC").value);
+
+
+            let totalDias = (valorA + (valorB * 30) + (valorC * 365))
+
+            document.getElementById("resposta1").innerHTML = " O resultado é " + totalDias + " dias";
+
+        }
+
+    </script>
+</body>
+
+</html>

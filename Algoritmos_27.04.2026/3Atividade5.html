@@ -1,0 +1,38 @@
+!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somador de A e B (2.0)</title>
+</head>
+
+<body style="background-color: aqua;">
+
+    <h1>Programa para somar A = 6 e B = 7</h1>
+    <label for="inputA">Coloque o número 6 no A</label>
+    <input type="number" name="inputA" id="inputA">
+    <br>
+    <label for="inputB">Coloque o número 7 no B</label>
+    <input type="number" name="inputB" id="inputB">
+    <br>
+    <input type="button" name="calcular" id="calcular" value="Somar" onclick="soma()">
+    <br>
+    <span id="resposta">O resultado do cálculo é</span>
+
+    <script>
+
+        function soma() {
+            a = parseFloat(document.getElementById("inputA").value);
+            b = parseFloat(document.getElementById("inputB").value);
+            let soma = a + b;
+            return soma;
+        }
+        let s = soma(6, 7);
+        console.log("O valor de s é " + s);
+        document.getElementById("resposta").innerHTML = s;
+
+    </script>
+</body>
+
+</html>

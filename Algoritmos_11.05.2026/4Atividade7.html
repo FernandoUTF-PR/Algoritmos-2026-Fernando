@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado</title>
+</head>
+
+<body style="background-color: aqua;">
+
+    <h1>Certificado</h1>
+    <label for="inputA">Coloque o seu nome</label>
+    <input type="text" name="inputA" id="inputA">
+    <br>
+
+    <label for="inputB">Coloque a sua nota final</label>
+    <input type="number" name="inputB" id="inputB">
+    <br>
+
+    <br>
+    <input type="button" name="calcular" id="calcular" value="Certify" onclick="funcaoCalcular()">
+    <br>
+    <span id="resposta1">O resultado é</span>
+
+    <script>
+
+        function funcaoCalcular() {
+            // alert("o clicar funcionou")
+            let nome = document.getElementById("inputA").innerHTML;
+            let notaFinal = parseFloat(document.getElementById("inputB").value);
+
+            document.getElementById("resposta1").innerHTML = "certificamos que " + nome + " concluiu com êxito o Curso de Algorítmos. Sua dedicação e aprendizado foram avaliados com a nota final de " + notaFinal+ " . Parabéns pela conquista e sucesso em seus futuros desafios!";
+
+        }
+
+    </script>
+</body>
+
+</html>
