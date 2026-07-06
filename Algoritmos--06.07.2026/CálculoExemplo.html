@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de dois numeros</title>
+</head>
+
+<body>
+    <h1>Programa exemplo que faz calculo com dois números</h1>
+    <!-- Programa em HTML e JavaScript para somar 2 números -->
+    <label for="inputN1">X</label>
+    <input type="number" name="inputN1" id="inputN1">
+    <br>
+    <label for="inputN2">Y</label>
+    <input type="number" name="inputN2" id="inputN2">
+    <br>
+    <br>
+    <input type="button" value="Somar" onclick="funcaoResponsavelPeloCalculo1()">
+    <br>
+    <label for="resposta1">x+y = </label>
+    <span id="resposta1">innerHTML</span>
+    <br>
+    <input type="button" value="Subtrair" onclick="funcaoResponsavelPeloCalculo2()">
+    <br>
+    <label for="resposta2">x-y = </label>
+    <span id="resposta2">innerHTML</span>
+    <br>
+    <input type="button" value="Multiplicar" onclick="funcaoResponsavelPeloCalculo3()">
+    <br>
+    <label for="resposta3">x.y = </label>
+    <span id="resposta3">innerHTML</span>
+    <br>
+
+    <script>
+        function funcaoResponsavelPeloCalculo1() {
+            let x = parseFloat(document.getElementById("inputN1").value);
+            let y = parseFloat(document.getElementById("inputN2").value);
+            let sPlus = (x + y);
+            document.getElementById("resposta1").innerHTML = sPlus;
+        }
+
+        function funcaoResponsavelPeloCalculo2() {
+            let x = parseFloat(document.getElementById("inputN1").value);
+            let y = parseFloat(document.getElementById("inputN2").value);
+            let sMinus = (x - y);
+            document.getElementById("resposta2").innerHTML = sMinus;
+        }
+
+        function funcaoResponsavelPeloCalculo3() {
+            let x = parseFloat(document.getElementById("inputN1").value);
+            let y = parseFloat(document.getElementById("inputN2").value);
+            let sMult = (x * y);
+            document.getElementById("resposta3").innerHTML = sMult;
+        }
+    </script>
+
+</body>
+
+</html>
