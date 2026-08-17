@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Entrada em Matriz</title>
+</head>
+
+<body>
+    <h2>Entrada de Dados em Matriz</h2>
+
+    <!-- 1. DEFINIÇÃO DAS DIMENSÕES DA MATRIZ -->
+    <h3>1. Configurar Matriz</h3>
+    <label for="inputLinhas">Quantidade de Linhas: </label>
+    <input type="number" id="inputLinhas" value="2" min="1"><br><br>
+
+    <label for="inputColunas">Quantidade de Colunas: </label>
+    <input type="number" id="inputColunas" value="3" min="1"><br><br>
+
+    <input type="button" value="Criar / Reiniciar Matriz" onclick="criarMatriz()"><br><br>
+
+    <hr>
+
+    <!-- 2. ENTRADA DE DADOS -->
+    <h3>2. Inserção de Dados</h3>
+    <span id="spanLimite">Clique em "Criar / Reiniciar Matriz" para começar.</span><br><br>
+    <span id="spanPosicaoAtual">Próxima inserção em: <b>Matriz[0][0]</b></span><br><br>
+
+    <label for="inputNumero">Número inteiro: </label>
+    <input type="number" id="inputNumero" disabled>
+    <input type="button" id="btnAdicionar" value="Adicionar à Matriz" onclick="adicionar()" disabled><br><br>
+
+    <label for="outputContador">Elementos Lidos: </label>
+    <span id="outputContador">0</span><br><br>
+
+    <label><b>Estrutura da Matriz:</b></label><br>
+    <div id="dadosLidos">[ ]</div><br><br>
+
+    <hr>
+
+    <!-- 3. OPERAÇÕES COM A MATRIZ -->
+    <h3>3. Operações</h3>
+    <input type="button" value="Calcular Soma" onclick="calcularSoma()"><br>
+    <label for="resultadoSoma">Soma: </label>
+    <span id="resultadoSoma">0</span><br><br>
+
+    <input type="button" value="Calcular Média" onclick="calcularMedia()"><br>
+    <label for="resultadoMedia">Média: </label>
+    <span id="resultadoMedia">0</span>
+
+    <script>
+        // --- VARIÁVEIS GLOBAIS ---
+        let matriz = [];
+        let totalLinhas = 0;
+        let totalColunas = 0;
+        let linhaAtual = 0;
+        let colunaAtual = 0;
+        let contadorTotal = 0;
+
+        // Função para ler os inputs de dimensão e criar a estrutura inicial da Matriz
+        function criarMatriz() {
+            // Leitura dos tamanhos informados pelo usuário
+            totalLinhas = parseInt(document.getElementById("inputLinhas").value);
+            totalColunas = parseInt(document.getElementById("inputColunas").value);
+
+            if (isNaN(totalLinhas) || totalLinhas <= 0 || isNaN(totalColunas) || totalColunas <= 0) {
+                alert("Informe valores válidos maiores que zero para linhas e colunas.");
+                return;
+            }
+
+            // Inicialização da matriz como um array de arrays (vetor de linhas)
+            matriz = [];
+            for (let i = 0; i < totalLinhas; i++) {
+                matriz.push([]); // Cria uma linha vazia para cada índice 'i'
+            }
+
+            // Reseta a posição de inserção e os contadores
+            linhaAtual = 0;
+            colunaAtual = 0;
+            contadorTotal = 0;
+
+            // Habilita o campo e o botão de entrada
+            document.getElementById("inputNumero").disabled = false;
+            document.getElementById("btnAdicionar").disabled = false;
+
+            // Atualiza a tela com as novas informações
+            document.getElementById("spanLimite").innerHTML = "Dimensão configurada: " + totalLinhas + " Linhas x " + totalColunas + " Colunas";
+            document.getElementById("spanPosicaoAtual").innerHTML = "Próxima inserção em: <b>Matriz[0][0]</b>";
+            document.getElementById("outputContador").innerHTML = "0 / " + (totalLinhas * totalColunas);
+            document.getElementById("resultadoSoma").innerHTML = "0";
+            document.getElementById("resultadoMedia").innerHTML = "0";
+            exibirMatriz();
+
+            // Coloca o foco no input de inserção de números
+            let inputNum = document.getElementById("inputNumero");
+            inputNum.focus();
+            inputNum.select();
+        }
+
+        function adicionar() {
+            let inputNum = document.getElementById("inputNumero");
+
+            // CONCEITO 1: Verificação de limite
+            if (linhaAtual >= totalLinhas) {
+                alert("A matriz já está totalmente preenchida!");
+                inputNum.focus();
+                inputNum.select();
+                return;
+            }
+
+            let num = parseInt(inputNum.value);
+
+            if (isNaN(num)) {
+                alert("Por favor, insira um número inteiro válido.");
+                inputNum.focus();
+                inputNum.select();
+                return;
+            }
+
+            // CONCEITO 2: Atribuição por coordenadas de Linha e Coluna
+            matriz[linhaAtual][colunaAtual] = num;
+            contadorTotal++;
+
+            // CONCEITO 3: Navegação na Matriz
+            // Avança para a próxima coluna; se estourar o limite de colunas, avança para a próxima linha
+            colunaAtual++;
+            if (colunaAtual >= totalColunas) {
+                colunaAtual = 0; // Volta para a primeira coluna
+                linhaAtual++;    // Avança para a próxima linha
+            }
+
+            // Atualiza as informações exibidas na tela
+            exibirMatriz();
+            document.getElementById("outputContador").innerHTML = contadorTotal + " / " + (totalLinhas * totalColunas);
+
+            if (linhaAtual < totalLinhas) {
+                document.getElementById("spanPosicaoAtual").innerHTML = "Próxima inserção em: <b>Matriz[" + linhaAtual + "][" + colunaAtual + "]</b>";
+            } else {
+                document.getElementById("spanPosicaoAtual").innerHTML = "<b>Matriz totalmente preenchida!</b>";
+            }
+
+            // REQUISITO: Seleciona o conteúdo do input e devolve o foco para ele
+            inputNum.focus();
+            inputNum.select();
+        }
+
+        // Função utilitária para formatar a matriz na tela por linhas
+        function exibirMatriz() {
+            let texto = "";
+            for (let i = 0; i < totalLinhas; i++) {
+                texto += "Linha " + i + ": [ " + matriz[i].join(", ") + " ]<br>";
+            }
+            document.getElementById("dadosLidos").innerHTML = texto;
+        }
+
+        function calcularSoma() {
+            if (contadorTotal === 0) {
+                alert("A matriz está vazia!");
+                return;
+            }
+
+            let soma = 0;
+
+            // CONCEITO 4: Varredura com Loops Aninhados (for dentro de for)
+            for (let i = 0; i < totalLinhas; i++) {
+                for (let j = 0; j < matriz[i].length; j++) {
+                    soma += matriz[i][j]; // Acessa o valor na linha 'i' e coluna 'j'
+                }
+            }
+
+            document.getElementById("resultadoSoma").innerHTML = soma;
+        }
+
+        function calcularMedia() {
+            if (contadorTotal === 0) {
+                alert("A matriz está vazia!");
+                return;
+            }
+
+            let soma = 0;
+
+            for (let i = 0; i < totalLinhas; i++) {
+                for (let j = 0; j < matriz[i].length; j++) {
+                    soma += matriz[i][j];
+                }
+            }
+
+            let media = soma / contadorTotal;
+            document.getElementById("resultadoMedia").innerHTML = media;
+        }
+    </script>
+</body>
+
+</html>
