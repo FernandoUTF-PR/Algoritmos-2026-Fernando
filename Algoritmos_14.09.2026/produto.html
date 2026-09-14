@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto</title>
+</head>
+
+<body>
+    <input type="button" value="ex03 - Listar Produtos" onclick="listarTodosOsProdutos()"><br>
+    <input type="button" value="ex04 - Produto Mais Pesado" onclick="mostrarProdutoMaisPesado()"><br>
+    <input type="button" value="ex05 - Produto Mais Leve" onclick="mostrarprodutoMaisLeve()"><br>
+    <input type="button" value="ex06 - Produto Mais Caro" onclick="mostrarProdutoMaisCaro()"><br>
+    <input type="button" value="ex07 - Produto Mais Barato" onclick="mostrarProdutoMaisBarato()"><br>
+    <input type="button" value="ex08 - Média de preços" onclick="mostrarMediaPreco()"><br>
+    <input type="button" value="ex09 - Média de peso" onclick="mostrarMediaPeso()"><br>
+    <span id="resposta"></span>
+
+    <script src="Produto.js"></script>
+
+    <script>
+        let listaProdutos = [];
+        // Instanciando todos os produtos
+        let produto = new Produto(1, "Bola de Futebol Campo", 89.90, 0.45, 30);
+        listaProdutos.push(produto);
+
+        produto = new Produto(2, "Chuteira Society", 199.90, 0.70, 15);
+        listaProdutos.push(produto);
+
+        produto = new Produto(3, "Raquete de Tênis", 350.00, 0.30, 8);
+        listaProdutos.push(produto);
+
+        produto = new Produto(4, "Bola de Basquete", 120.00, 0.62, 20);
+        listaProdutos.push(produto);
+
+        produto = new Produto(5, "Kettlebell 12kg", 180.00, 12.00, 5);
+        listaProdutos.push(produto);
+
+        produto = new Produto(6, "Caneleira de Futebol", 35.00, 0.15, 40);
+        listaProdutos.push(produto);
+
+        produto = new Produto(7, "Luva de Boxe 12oz", 150.00, 0.80, 12);
+        listaProdutos.push(produto);
+
+        produto = new Produto(8, "Prancha Stand Up Paddle", 2500.00, 11.50, 2);
+        listaProdutos.push(produto);
+
+        produto = new Produto(9, "Óculos de Natação", 45.00, 0.08, 50);
+        listaProdutos.push(produto);
+
+        produto = new Produto(10, "Colchonete de Yoga", 65.00, 0.90, 25);
+        listaProdutos.push(produto);
+
+        produto = new Produto(11, "Anilha de Ferro 10kg", 130.00, 10.00, 10);
+        listaProdutos.push(produto);
+
+        produto = new Produto(12, "Capacete de Ciclismo", 160.00, 0.28, 18);
+        listaProdutos.push(produto);
+
+        produto = new Produto(13, "Corda de Pular Veloz", 25.00, 0.12, 60);
+        listaProdutos.push(produto);
+
+        produto = new Produto(14, "Mochila de Hidratação", 210.00, 0.40, 14);
+        listaProdutos.push(produto);
+
+        produto = new Produto(15, "Kimono de Jiu-Jitsu", 380.00, 1.80, 7);
+        listaProdutos.push(produto);
+
+        function mostrarListaProdutos(listaProdutos) {
+            let listagem = "<br>";
+            listagem += "<strong>Nome | Preço Unitário </strong><br>";
+            listagem += "------------------------------------------------<br>";
+            for (let i = 0; i < listaProdutos.length; i++) {
+                const linha = listaProdutos[i];
+                listagem += linha.nome + " - R$ " + linha.precoUnitario.toFixed(2) +
+                    "<br>";
+            }
+            return listagem;
+        }
+
+        function produtoMaisPesado(listaProdutos) {
+            let maisPesado = listaProdutos[0].peso;
+            let pos = 0;
+            for (let i = 1; i < listaProdutos.length; i++) {
+                let linha = listaProdutos[i];
+                if (linha.peso > maisPesado) {
+                    maisPesado = linha.peso;
+                    pos = i;
+                }
+            }
+            return "Produto mais pesado: " + listaProdutos[pos].nome + " - " + listaProdutos[pos].peso.toFixed(2) + " kg";
+        }
+
+        function produtoMaisLeve(listaProdutos) {
+            let maisLeve = listaProdutos[0].peso;
+            let pos = 0;
+            for (let i = 1; i < listaProdutos.length; i++) {
+                let linha = listaProdutos[i];
+                if (linha.peso < maisLeve) {
+                    maisLeve = linha.peso;
+                    pos = i;
+                }
+            }
+            return pos;
+        }
+
+        function produtoMaisCaro(listaProdutos) {
+            let maisCaro = listaProdutos[0].precoUnitario;
+            let pos = 0;
+            for (let i = 1; i < listaProdutos.length; i++) {
+                let linha = listaProdutos[i];
+                if (linha.precoUnitario > maisCaro) {
+                    maisCaro = linha.precoUnitario;
+                    pos = i;
+                }
+            }
+            return pos;
+        }
+
+        function produtoMaisBarato(listaProdutos) {
+            let maisBarato = listaProdutos[0].precoUnitario;
+            let pos = 0;
+            for (let i = 1; i < listaProdutos.length; i++) {
+                let linha = listaProdutos[i];
+                if (linha.precoUnitario < maisBarato) {
+                    maisBarato = linha.precoUnitario;
+                    pos = i;
+                }
+            }
+            return pos;
+        }
+
+        function mediaDePrecos(listaProdutos) {
+            let soma = 0;
+
+            for (let i = 0; i < listaProdutos.length; i++) {
+                soma += listaProdutos[i].precoUnitario;
+            }
+
+            let mediaPreco = soma / listaProdutos.length;
+
+            return mediaPreco;
+        }
+
+        function mediaDePesos(listaProdutos) {
+            let somaPeso = 0;
+
+            for (let i = 0; i < listaProdutos.length; i++) {
+                somaPeso += listaProdutos[i].peso;
+            }
+
+            let mediaPeso = somaPeso / listaProdutos.length;
+
+            return mediaPeso;
+        }
+
+        //function
+        
+        function newLista(listaProdutos) {
+            let lista100 = [];
+
+            for(let i = 1; i < listaProdutos.length; i++) {
+                if (listaProdutos[i].precoUnitario < 100.00){
+                    listaProdutos[i].precoUnitario && 
+                }
+            }
+        }
+
+        function mostrarprodutoMaisLeve() {
+            const posMaisLeve = produtoMaisLeve(listaProdutos);
+            document.getElementById("resposta").innerHTML = "Produto mais leve: " + listaProdutos[posMaisLeve].nome + " - " + listaProdutos[posMaisLeve].peso.toFixed(2) + " kg";
+        }
+
+        //06
+        function mostrarProdutoMaisPesado() {
+            document.getElementById("resposta").innerHTML = produtoMaisPesado(listaProdutos);
+
+        }
+
+        function mostrarProdutoMaisCaro() {
+            const posMaisCaro = produtoMaisCaro(listaProdutos);
+            document.getElementById("resposta").innerHTML = "Produto mais caro: " + listaProdutos[posMaisCaro].nome + " - " + " R$" + listaProdutos[posMaisCaro].precoUnitario.toFixed(2);
+        }
+
+        function mostrarProdutoMaisBarato() {
+            const posMaisBarato = produtoMaisBarato(listaProdutos);
+            document.getElementById("resposta").innerHTML = "Produto mais barato: " + listaProdutos[posMaisBarato].nome + " - " + " R$" + listaProdutos[posMaisBarato].precoUnitario.toFixed(2);
+        }
+
+        function mostrarMediaPreco() {
+            const mediaPreco = mediaDePrecos(listaProdutos);
+            document.getElementById("resposta").innerHTML = "Média: R$" + mediaPreco.toFixed(2);
+
+        }
+
+         function mostrarMediaPeso() {
+            const mediaPeso = mediaDePesos(listaProdutos);
+            document.getElementById("resposta").innerHTML = "Média: " + mediaPeso.toFixed(2) + " Kg";
+
+        }
+
+        function listarTodosOsProdutos() {
+            document.getElementById("resposta").innerHTML = mostrarListaProdutos(listaProdutos);
+        }
+    </script>
+</body>
+
+</html>
