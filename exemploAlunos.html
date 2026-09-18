@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Alunos - Registros</title>
+</head>
+<body>
+
+    <h1>Gestão de Alunos (Agregados Heterogêneos)</h1>
+
+    <!-- Form para inserção de novo registro -->
+    <section>
+        <h2>Adicionar Novo Aluno</h2>
+        <label for="ra">RA:</label>
+        <input type="number" id="ra"><br><br>
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome"><br><br>
+
+        <label for="dataNascimento">Data de Nascimento:</label>
+        <input type="date" id="dataNascimento"><br><br>
+
+        <button onclick="cadastrarAluno()">Cadastrar Aluno</button>
+    </section>
+
+    <hr>
+
+    <!-- Exibição dos dados -->
+    <section>
+        <h2>Alunos Cadastrados</h2>
+
+        <!-- Tabela HTML nativa sem estilização CSS -->
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>RA</th>
+                    <th>Nome</th>
+                    <th>Data de Nascimento</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaAlunos">
+                <!-- Registros inseridos via JavaScript -->
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        // Array (Coleção) que armazena os Registros (Agregados Heterogêneos).
+        // Cada elemento do vetor contém tipos mistos: Number e String.
+        const listaAlunos = [
+            { ra: 2024001, nome: "Ana Silva", dataNascimento: "2003-04-12" },
+            { ra: 2024002, nome: "Bruno Costa", dataNascimento: "2001-11-25" },
+            { ra: 2024003, nome: "Carla Souza", dataNascimento: "2004-01-08" }
+        ];
+
+        // Função para criar e adicionar um novo registro à lista
+        function cadastrarAluno() {
+            // Leitura dos valores nos inputs do HTML
+            const raInput = document.getElementById("ra").value;
+            const nomeInput = document.getElementById("nome").value;
+            const dataInput = document.getElementById("dataNascimento").value;
+
+            // Validação simples
+            if (!raInput || !nomeInput || !dataInput) {
+                alert("Por favor, preencha todos os campos!");
+                return;
+            }
+
+            // Agregado Heterogêneo: junta dados de tipos diferentes em uma única estrutura
+            const novoAluno = {
+                ra: Number(raInput),         // Tipo: Number
+                nome: nomeInput,             // Tipo: String
+                dataNascimento: dataInput    // Tipo: String
+            };
+
+            // Adiciona o registro ao vetor de dados
+            listaAlunos.push(novoAluno);
+
+            // Limpa os campos do formulário
+            document.getElementById("ra").value = "";
+            document.getElementById("nome").value = "";
+            document.getElementById("dataNascimento").value = "";
+
+            // Atualiza a tabela na tela
+            listarAlunos();
+        }
+
+        // Algoritmo para percorrer a coleção de registros e exibir no HTML
+        function listarAlunos() {
+            const corpoTabela = document.getElementById("tabelaAlunos");
+            corpoTabela.innerHTML = ""; // Limpa a listagem anterior
+
+            // Laço de repetição tradicional sobre o vetor de agregados
+            for (let i = 0; i < listaAlunos.length; i++) {
+                const aluno = listaAlunos[i]; // Acessa o registro do índice atual
+
+                // Monta a linha acessando os campos do agregado (.ra, .nome, .dataNascimento)
+                const linha = `
+                    <tr>
+                        <td>${aluno.ra}</td>
+                        <td>${aluno.nome}</td>
+                        <td>${aluno.dataNascimento}</td>
+                    </tr>
+                `;
+
+                corpoTabela.innerHTML += linha;
+            }
+        }
+
+        // Executa a renderização inicial assim que a página carrega
+        listarAlunos();
+    </script>
+
+</body>
+</html>

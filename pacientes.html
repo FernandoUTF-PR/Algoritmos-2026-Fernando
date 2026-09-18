@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Pacientes - Registros</title>
+</head>
+
+<body>
+
+    <h1>Gestão de Pacientes (Agregados Heterogêneos)</h1>
+
+    <!-- Form para inserção de novo registro -->
+    <section>
+        <h2>Adicionar Novo Paciente</h2>
+        <label for="id">ID:</label>
+        <input type="number" id="id"><br><br>
+
+        <label for="nome">Nome (completo):</label>
+        <input type="text" id="nome"><br><br>
+
+        <label for="convenio">Convênio:</label>
+        <input type="text" id="convenio"><br><br>
+
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade"><br><br>
+
+        <label for="peso">Peso (em quilogramas):</label>
+        <input type="number" id="peso"><br><br>
+
+        <label for="altura">Altura (em metros):</label>
+        <input type="number" id="altura"><br><br>
+
+        <button onclick="cadastrarPacientes()">Cadastrar Paciente</button>
+
+        <button onclick="maisVelho()">Paciente Mais Velho</button>
+
+        <button onclick="soNomeEidade()">Só nome e idade</button>
+
+        <button onclick="OverFifty()">Acima de 50</button>
+    </section>
+
+    <hr>
+
+    <!-- Exibição dos dados -->
+    <section>
+        <h2>Pacientes Cadastrados</h2>
+
+        <!-- Tabela HTML nativa sem estilização CSS -->
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Convênio</th>
+                    <th>Idade</th>
+                    <th>Peso</th>
+                    <th>Altura</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaPacientes">
+                <!-- Registros inseridos via JavaScript -->
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        // Array (Coleção) que armazena os Registros (Agregados Heterogêneos).
+        // Cada elemento do vetor contém tipos mistos: Number e String.
+        const listaPacientes = [
+            { id: 1, nome: "Ana Souza", convenio: "Unimed", idade: 34, peso: 62.5, altura: 1.65 },
+            { id: 2, nome: "Bruno Lima", convenio: "Bradesco", idade: 45, peso: 88.0, altura: 1.78 },
+            { id: 3, nome: "Carla Dias", convenio: "SUS", idade: 28, peso: 55.0, altura: 1.60 },
+            { id: 4, nome: "Diego Rocha", convenio: "Amil", idade: 52, peso: 95.5, altura: 1.82 },
+            { id: 5, nome: "Elisa Martins", convenio: "Unimed", idade: 19, peso: 50.0, altura: 1.58 }
+        ];
+
+        // Função para criar e adicionar um novo registro à lista
+        function cadastrarPacientes() {
+            // Leitura dos valores nos inputs do HTML
+            const idInput = document.getElementById("id").value;
+            const nomeInput = document.getElementById("nome").value;
+            const convenioInput = document.getElementById("convenio").value;
+            const idadeInput = document.getElementById("idade").value;
+            const pesoInput = document.getElementById("peso").value;
+            const alturaInput = document.getElementById("altura").value;
+
+            // Validação simples
+            if (!idInput || !nomeInput || !convenioInput || !idadeInput || !pesoInput || !alturaInput) {
+                alert("Por favor, preencha todos os campos!");
+            } else if (idadeInput === NaN || pesoInput === NaN || alturaInput === NaN) {
+                alert("Por favor, preencha todos os campos!");
+                return;
+            }
+
+            // Agregado Heterogêneo: junta dados de tipos diferentes em uma única estrutura
+            const novoPaciente = {
+                id: Number(idInput),         // Tipo: Number
+                nome: nomeInput,             // Tipo: String
+                convenio: convenioInput,     // Tipo: String
+                idade: idadeInput,           // Tipo: String
+                peso: Number(pesoInput),     // Tipo: Number
+                altura: Number(alturaInput), // Tipo: Number
+            };
+
+            // Adiciona o registro ao vetor de dados
+            listaPacientes.push(novoPaciente);
+
+            // Limpa os campos do formulário
+            document.getElementById("id").value = "";
+            document.getElementById("nome").value = "";
+            document.getElementById("convenio").value = "";
+            document.getElementById("idade").value = "";
+            document.getElementById("peso").value = "";
+            document.getElementById("altura").value = "";
+
+            // Atualiza a tabela na tela
+            listarPacientes();
+        }
+
+        // Algoritmo para percorrer a coleção de registros e exibir no HTML
+        function listarPacientes() {
+            const corpoTabela = document.getElementById("tabelaPacientes");
+            corpoTabela.innerHTML = ""; // Limpa a listagem anterior
+
+            // Laço de repetição tradicional sobre o vetor de agregados
+            for (let i = 0; i < listaPacientes.length; i++) {
+                const paciente = listaPacientes[i]; // Acessa o registro do índice atual
+
+                // Monta a linha acessando os campos do agregado (.ra, .nome, .dataNascimento)
+                const linha = `
+                    <tr>
+                        <td>${paciente.id}</td>
+                        <td>${paciente.nome}</td>
+                        <td>${paciente.convenio}</td>
+                        <td>${paciente.idade}</td>
+                        <td>${paciente.peso}</td>
+                        <td>${paciente.altura}</td>
+                    </tr>
+                `;
+
+                corpoTabela.innerHTML += linha;
+            }
+        }
+
+        // Executa a renderização inicial assim que a página carrega
+        listarPacientes();
+
+        function soNomeEidade() {
+            // Leitura dos valores nos inputs do HTML
+            const nomeInput = document.getElementById("nome").value;
+            const idadeInput = document.getElementById("idade").value;
+            // Validação simples
+            if (!nomeInput || !idadeInput) {
+                alert("Por favor, preencha todos os campos!");
+            } else if (idadeInput === NaN) {
+                alert("Por favor, apenas número!");
+                return;
+            }
+        }
+
+
+         function maisVelho(listaPacientes) { 
+
+            const idadeInput = document.getElementById("idade").value;  
+
+            if (!idadeInput) {
+                alert("Por favor, preencha todos os campos!");
+            } else if (idadeInput === NaN) {
+                alert("Por favor, apenas número!");
+                return;
+            }
+
+            let maisVelho = listaPacientes[0].peso;
+            let pos = 0;
+            for (let i = 1; i < listaPacientes.length; i++) {
+                let linha = listaPacientes[i];
+                if (linha.peso > maisVelho) {
+                    maisVelho = linha.peso;
+                    pos = i;
+                }
+            }
+           return "Paciente mais velho: " + listaPacientes[pos].nome + " - ";
+        }
+
+        function OverFifty() {
+
+            const listaOverFifty = [];
+            const idadeInput = document.getElementById("idade").value;
+
+            if (!idadeInput) {
+                alert("Por favor, preencha todos os campos!");
+            } else if (idadeInput === NaN) {
+                alert("Por favor, apenas número!");
+                return;
+            }
+            
+            if (idadeInput >= 50) {
+                listaOverFifty.push(nomeInput);
+                listaOverFifty.push(idadeInput);
+                listaOverFifty.push(convenioInput);
+                listaOverFifty.push(Input);
+                listaOverFifty.push(alturaInput);
+
+                return;
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>
