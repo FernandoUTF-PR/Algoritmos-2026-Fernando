@@ -26,7 +26,7 @@ function procure() {
     if (idPelucia) { // se digitou um idPelucia
         pelucia = procurePorChavePrimaria(idPelucia);
         if (pelucia) { //achou na lista
-            mostrarDadosVeiculo(pelucia);
+            mostrarDadosPelucia(pelucia);
             visibilidadeDosBotoes('inline', 'none', 'inline', 'inline', 'none'); // Habilita botões de alterar e excluir
             mostrarAviso("Achou na lista, pode alterar ou excluir");
         } else { //não achou na lista
@@ -86,19 +86,19 @@ function salvar() {
     const nome = document.getElementById("inputNome").value;
     const personagem = document.getElementById("inputPersonagem").value;
     const preco = parseInt(document.getElementById("inputPreco").value);
-    const TamanhoCM = parseInt(document.getElementById("inputTamanho").value);
+    const tamanho = parseInt(document.getElementById("inputTamanho").value);
 
     //verificar se o que foi digitado pelo USUÁRIO está correto
-    if (idPelucia && personagem && nome && preco && TamanhoCM) {// se tudo certo 
+    if (idPelucia && personagem && nome && preco && tamanho) {// se tudo certo 
         switch (oQueEstaFazendo) {
             case 'inserindo':
-                pelucia = new Pelucia(idPelucia, personagem, nome, preco, TamanhoCM);
+                pelucia = new Pelucia(idPelucia, personagem, nome, preco, tamanho);
                 listaPelucia.push(pelucia);
                 mostrarAviso("Inserido na lista");
                 break;
             case 'alterando':
-                peluciaAlterado = new Pelucia(idPelucia, personagem, nome, preco, TamanhoCM);
-                listaPelucia[pelucia.posicaoNaLista] = celularAlterado;
+                peluciaAlterado = new Pelucia(idPelucia, personagem, nome, preco, tamanho);
+                listaPelucia[pelucia.posicaoNaLista] = peluciaAlterado;
                 mostrarAviso("Alterado");
                 break;
             case 'excluindo':
@@ -134,8 +134,8 @@ function preparaListagem(vetor) {
             linha.idPelucia + " - " +
             linha.nome + " - " +
             linha.personagem + " - " +
-            linha.TamanhoCM + " - " +
-            linha.preco + " <br> " ;
+            linha.tamanho + " - " +
+            " R$ " + linha.preco.toFixed(2) + " <br> " ;
             
     }
     return texto;
@@ -159,11 +159,12 @@ function mostrarAviso(mensagem) {
 }
 
 // Função para mostrar os dados do pelucia nos campos
-function mostrarDadosVeiculo(pelucia) {
+function mostrarDadosPelucia(pelucia) {
     document.getElementById("inputIDpelucia").value = pelucia.idPelucia;
-    document.getElementById("inputNome").value = pelucia.modelo;
+    document.getElementById("inputNome").value = pelucia.nome;
     document.getElementById("inputPreco").value = pelucia.preco;
-    document.getElementById("inputTamanho").value = pelucia.TamanhoCM;
+    document.getElementById("inputPersonagem").value = pelucia.personagem;
+    document.getElementById("inputTamanho").value = pelucia.tamanho;
 
     // Define os campos como readonly
     bloquearAtributos(true);

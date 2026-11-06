@@ -1,9 +1,9 @@
 class Pelucia {
-    constructor(idPelucia, nome, personagem, tamanhoCM, preco, posicaoNaLista) {
+    constructor(idPelucia, nome, personagem, tamanho, preco, posicaoNaLista) {
         this.idPelucia = idPelucia;
         this.nome = nome;
         this.personagem = personagem;
-        this.tamanhoCM = tamanhoCM;
+        this.tamanho = tamanho;
         this.preco = preco;
         this.posicaoNaLista = posicaoNaLista; //atributo para facilitar a alteração e exclusão 
     }

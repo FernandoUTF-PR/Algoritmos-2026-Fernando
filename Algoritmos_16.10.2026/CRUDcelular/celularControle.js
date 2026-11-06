@@ -26,7 +26,7 @@ function procure() {
     if (numero) { // se digitou um numero
         celular = procurePorChavePrimaria(numero);
         if (celular) { //achou na lista
-            mostrarDadosVeiculo(celular);
+            mostrarDadosCelular(celular);
             visibilidadeDosBotoes('inline', 'none', 'inline', 'inline', 'none'); // Habilita botões de alterar e excluir
             mostrarAviso("Achou na lista, pode alterar ou excluir");
         } else { //não achou na lista
@@ -156,7 +156,7 @@ function mostrarAviso(mensagem) {
 }
 
 // Função para mostrar os dados do celular nos campos
-function mostrarDadosVeiculo(celular) {
+function mostrarDadosCelular(celular) {
     document.getElementById("inputIDnumero").value = celular.numero;
     document.getElementById("inputModelo").value = celular.modelo;
     document.getElementById("inputPreco").value = celular.preco;
